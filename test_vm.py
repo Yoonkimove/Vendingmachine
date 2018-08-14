@@ -15,3 +15,8 @@ def test_accumulation_of_change():
     run("동전 100")
     run("동전 100")
     assert "잔액은 200원입니다" == run("잔액")
+
+def test_I_dont_know():
+    init()
+    run("moony")
+    assert "알 수 없는 명령입니다." == run("moony")
