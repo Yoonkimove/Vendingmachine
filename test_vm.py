@@ -36,3 +36,14 @@ def test_unknown_drink():
     m = VendingMachine()
     m.run("둥전 500")
     assert "알 수 없는 음료입니다." == m.run("음료 맥주")
+
+# def test_valid_coins():
+#     m = VendingMachine()
+#     valid_coins = ["10", "50", "100", "500"]
+#     for coin in valid_coins:
+#         assert coin + "원을 넣었습니다" = m.run("동전" + coin)
+
+def test_invalid_coin():
+    m = VendingMachine()
+    assert "알 수 없는 동전입니다." == m.run("동전 999")
+    assert "잔액은 0원입니다" == m.run("잔액")
