@@ -19,3 +19,20 @@ def test_accumulation_of_change():
 def test_I_dont_know():
     m = VendingMachine()
     assert "알 수 없는 명령입니다." == m.run("moony")
+
+def test_short():
+    m = VendingMachine()
+    m.run("동전 100")
+    assert "잔액이 부족합니다." == m.run("음료 커피")
+    assert "잔액은 100원입니다" == m.run("잔액")
+
+def test_full():
+    m = VendingMachine()
+    m.run("동전 500")
+    assert "커피가 나왔습니다." == m.run("음료 커피")
+    assert "잔액은 350원입니다" == m.run("잔액")
+
+def test_unknown_drink():
+    m = VendingMachine()
+    m.run("둥전 500")
+    assert "알 수 없는 음료입니다." == m.run("음료 맥주")
